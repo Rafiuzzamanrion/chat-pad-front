@@ -64,7 +64,7 @@ const AuthProviders = ({ children }) => {
                     email: currentUser?.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://task-pad-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(loggedUser)

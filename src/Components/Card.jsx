@@ -21,7 +21,7 @@ const Card = ({ task }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.patch(`http://localhost:5000/completeTask?id=${id}`)
+                axios.patch(`https://task-pad-server.vercel.app/completeTask?id=${id}`)
                     .then(res => {
                         if (res.data.modifiedCount) {
                             window.location.reload();
@@ -51,7 +51,7 @@ const Card = ({ task }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:5000/deleteTask?id=${id}`)
+                axios.delete(`https://task-pad-server.vercel.app/deleteTask?id=${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             window.location.reload();

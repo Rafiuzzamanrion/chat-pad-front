@@ -80,7 +80,7 @@ const SignUp = () => {
                             const createdUser = result.user;
 
                             //   ========= post user data to mongodb ==========
-                            axios.post('http://localhost:5000/addUser', newItem
+                            axios.post('https://task-pad-server.vercel.app/addUser', newItem
                             ).then((res) => {
                                 if (res.data.insertedId) {
 

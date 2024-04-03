@@ -30,7 +30,7 @@ const UpdateTask = () => {
             confirmButtonText: "Yes, Update it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.patch(`http://localhost:5000/updateTask?id=${id}`, updatedData)
+                axios.patch(`https://task-pad-server.vercel.app/updateTask?id=${id}`, updatedData)
                     .then(res => {
                         if (res.data && res.data.modifiedCount) {
                             Swal.fire({

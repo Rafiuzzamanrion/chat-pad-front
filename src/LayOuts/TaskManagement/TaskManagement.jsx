@@ -37,7 +37,7 @@ const TaskManagement = () => {
         queryKey: ['avatarLoad', user?.email],
         enabled:!loading,
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/avatarLoad?email=${user?.email}`);
+            const res = await axios.get(`https://task-pad-server.vercel.app/avatarLoad?email=${user?.email}`);
             return res.data;
         }
     })

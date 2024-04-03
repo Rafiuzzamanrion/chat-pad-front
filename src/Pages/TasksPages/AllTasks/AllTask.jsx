@@ -25,7 +25,7 @@ const AllTask = () => {
     // ========= data load with jwt ==========
     useEffect(() => {
         
-        fetch(`http://localhost:5000/task?email=${user?.email}&page=${currentPage}&size=${itemsPerPage}`, {
+        fetch(`https://task-pad-server.vercel.app/task?email=${user?.email}&page=${currentPage}&size=${itemsPerPage}`, {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -72,7 +72,7 @@ const AllTask = () => {
         const description = form.description.value;
         const taskData = { title: title, description: description, IsImportant: selectedValue, time: Date(), email: user?.email, status: 'incomplete' }
 
-        axios.post(`http://localhost:5000/addTask`, taskData).then(res => {
+        axios.post(`https://task-pad-server.vercel.app/addTask`, taskData).then(res => {
             if (res.data.insertedId) {
                 window.location.reload();
                 Swal.fire({

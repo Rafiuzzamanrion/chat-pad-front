@@ -10,7 +10,7 @@ const UseTask = () => {
         queryKey: ['taskCount', user?.email],
         enabled:!loading,
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/taskCount?email=${user?.email}`);
+            const res = await axios.get(`https://task-pad-server.vercel.app/taskCount?email=${user?.email}`);
             return res.data;
         }
     })

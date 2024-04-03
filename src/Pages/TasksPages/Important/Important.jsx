@@ -21,7 +21,7 @@ const Important = () => {
     const { user } = useContext(AuthContext);
     useEffect(() => {
      
-        fetch(`http://localhost:5000/task?email=${user?.email}&page=${currentPage}&size=${itemsPerPage}`,{
+        fetch(`https://task-pad-server.vercel.app/task?email=${user?.email}&page=${currentPage}&size=${itemsPerPage}`,{
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -66,7 +66,7 @@ const Important = () => {
         const description = form.description.value;
         const taskData = { title: title, description: description, IsImportant: selectedValue,time:Date(),email:user?.email,status:'incomplete' }
 
-        axios.post(`http://localhost:5000/addTask`, taskData).then(res => {
+        axios.post(`https://task-pad-server.vercel.app/addTask`, taskData).then(res => {
             if (res.data.insertedId) {
                 Swal.fire({
                     position: "top",
