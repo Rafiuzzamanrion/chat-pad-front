@@ -91,7 +91,7 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1200
                                     });
-                                    navigate('/');
+                                    navigate('/task/taskHome');
                                     form.reset();
 
                                 }

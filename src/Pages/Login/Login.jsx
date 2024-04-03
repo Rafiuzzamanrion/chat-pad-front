@@ -26,7 +26,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1200
             });
-            navigate('/')
+            navigate('/task/taskHome')
         }).catch(error =>{
             Swal.fire({
                 position: "top",

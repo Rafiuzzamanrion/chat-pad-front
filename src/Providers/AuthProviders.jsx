@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
+import axios from "axios";
 
 
 
@@ -53,6 +54,30 @@ const AuthProviders = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
+
+
+            // ======== json web token(jwt) ==========
+
+            //  if user exist issue a token
+            if (currentUser && currentUser?.email) {
+                const loggedUser = {
+                    email: currentUser?.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify(loggedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        localStorage.setItem('token', data.token)
+                    })
+            }
+            else {
+                localStorage.removeItem('token')
+            }
         });
         return () => {
             return unsubscribe;

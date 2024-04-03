@@ -9,8 +9,7 @@ const NavBar = () => {
                     <Link to={'/'}> <img className="w-12 object-cover hover:ease-in hover:duration-150 hover:scale-110" src={logo} alt="" /></Link>
                 </div>
                 <div className="flex justify-center gap-2 md:gap-5 items-center uppercase text-xs font-semibold">
-                    <Link to={'/features'} className="hover:text-info hover:border-b-4 hover:border-info">features</Link>
-                    <Link to={'/contact'} className="hover:text-info hover:border-b-4 hover:border-info">contact us</Link>
+                 
                     <Link to={'/login'}><button className="btn btn-info rounded-full hover:bg-transparent hover:border-2 text-white hover:text-black hover:ease-in hover:duration-150 hover:scale-105">LOGIN</button></Link>
                     <Link to={'/signUp'}><button className="btn btn-info bg-transparent border-2 rounded-full hover:ease-in hover:duration-150 hover:scale-105">SIGN UP</button></Link>
                 </div>

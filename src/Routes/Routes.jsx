@@ -3,6 +3,19 @@ import Main from "../LayOuts/Home/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import TaskManagement from "../LayOuts/TaskManagement/TaskManagement";
+import TaskHome from "../Pages/TasksPages/TaskHome/TaskHome";
+import AllTask from "../Pages/TasksPages/AllTasks/AllTask";
+import UpdateTask from "../Pages/TasksPages/UpdateTask/UpdateTask";
+import Completed from "../Pages/TasksPages/Completed/Completed";
+import NotCompleted from "../Pages/TasksPages/NotCompleted/NotCompleted";
+import Important from "../Pages/TasksPages/Important/Important";
+import PrivateRoutes from "./PrivateRoutes";
+
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -23,6 +36,39 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: 'task',
+    element: <PrivateRoutes><TaskManagement></TaskManagement></PrivateRoutes>,
+    children: [
+      {
+        path: 'taskHome',
+        element: <PrivateRoutes><TaskHome></TaskHome></PrivateRoutes>
+      },
+      {
+        path: 'allTask',
+        element: <PrivateRoutes><AllTask></AllTask></PrivateRoutes>
+      },
+      {
+        path: ':updateTask/:id',
+        element: <PrivateRoutes><UpdateTask></UpdateTask></PrivateRoutes>,
+        loader: ({ params }) => fetch(`http://localhost:5000/specificTask/${params.id}`)
+      },
+      {
+        path: 'completed',
+        element: <PrivateRoutes><Completed></Completed></PrivateRoutes>
+      },
+      {
+        path: 'incomplete',
+        element: <PrivateRoutes><NotCompleted></NotCompleted></PrivateRoutes>
+      },
+      {
+        path: 'important',
+        element: <PrivateRoutes><Important></Important></PrivateRoutes>
+      }
+
+
+    ]
+  }
 ]);
 
 
